@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b30d664-3861-4f16-a13d-bed82faa8d08" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/config/autoload/local.php.dist" afterPath="" />
-    </list>
+    <list default="true" id="5b30d664-3861-4f16-a13d-bed82faa8d08" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -289,12 +285,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1515307999915</updated>
-      <workItem from="1515308004508" duration="37101000" />
+      <workItem from="1515308004508" duration="37197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37101000" />
+    <option name="totallyTimeSpent" value="37197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1018" extended-state="6" />
