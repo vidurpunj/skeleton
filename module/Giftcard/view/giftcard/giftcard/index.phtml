@@ -1,0 +1,23 @@
+
+<p>
+    <a href="<?php echo $this->url('giftcard', array('action'=>'add'));?>">Add new giftcard</a>
+</p>
+<table class="table">
+    <tr>
+        <th>name</th>
+        <th>price</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($giftcards as $giftcard) : ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($giftcard->name);?></td>
+            <td><?php echo $this->escapeHtml($giftcard->price);?></td>
+            <td>
+                <a href="<?php echo $this->url('giftcard',
+                    array('action'=>'edit', 'id' => $giftcard->id));?>">Edit</a>
+                <a href="<?php echo $this->url('giftcard',
+                    array('action'=>'delete', 'id' => $giftcard->id));?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
