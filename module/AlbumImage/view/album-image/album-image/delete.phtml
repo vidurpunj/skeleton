@@ -1,7 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vidur
- * Date: 1/14/18
- * Time: 2:11 PM
- */
+// module/Album/view/album_image/album_image/delete.phtml:
+//Php default server
+//link https://symfony.com/doc/2.7/setup/built_in_web_server.html
+//php app/console server:start
+$title = 'Delete album_image';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<p>Are you sure that you want to delete
+    '<?php echo $this->escapeHtml($album_image->album_id); ?>' created on
+    '<?php echo $this->escapeHtml($album_image->created_at); ?>'?
+</p>
+<?php
+$url = $this->url('album_image', array(
+    'action' => 'delete',
+    'id'     => $this->id,
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo (int) $album_image->id; ?>" />
+        <input type="submit" name="del" value="Yes" />
+        <input type="submit" name="del" value="No" />
+    </div>
+</form>
+
