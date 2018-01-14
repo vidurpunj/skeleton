@@ -29,8 +29,8 @@ class AlbumImageForm extends Form
 //            'options' => array(
 //                'label' => 'Select an Album',
 //                'empty_option' => 'Please select an author',
-//
 //                'options' => array('1' => 'one', '2' => 'Two', '3' => 'two', '4' => 'Four'))
+//            )
 //        ));
 
         $this->add(array(

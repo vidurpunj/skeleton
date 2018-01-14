@@ -6,7 +6,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 use AlbumImage\Model\AlbumImage;          // <-- Add this import
-use AlbumImage\Form\AlbumImageForm;       // <-- Add this import
+use AlbumImage\Form\AlbumImageForm;         // <-- Add this import
+use Zend\Db\ResultSet\ResultSet;
 
 class AlbumImageController  extends AbstractActionController
 {
@@ -33,12 +34,28 @@ class AlbumImageController  extends AbstractActionController
     //Add Action
     public function addAction()
     {
+
+        $resultSet = $this->getAlbumImageTable()->getAlbumsList();
+        $option =  array('1' => 'one', '2' => 'Two', '3' => 'two', '4' => 'Four');
+
+//        echo "<pre>";
+//        print_r($resultSet->toArray());
+//        exit();
+
+
         $form = new AlbumImageForm();
-        $form->get('submit')->setValue('Add');
+//        $form->get('number')->setValue()->setOption($option);
+//        $form->get('number')->setValue()->setOptions($resultSet);
+
+
+        $form->get('submit')->setValue('Addqwqw');
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $album_image = new AlbumImage();
+
+
+
+            $album_image  = new AlbumImage();
             $form->setInputFilter($album_image->getInputFilter());
             $form->setData($request->getPost());
 
@@ -99,7 +116,8 @@ class AlbumImageController  extends AbstractActionController
     public function deleteAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
-
+        echo $id;
+        exit();
 
         if (!$id) {
             return $this->redirect()->toRoute('album_image');

@@ -4,6 +4,10 @@ namespace AlbumImage\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 
+use Zend\Db\Sql\Sql;
+use Zend\Db\Adapter\Driver\ResultInterface;
+use Zend\Db\ResultSet\ResultSet;
+
 class AlbumImageTable
 {
 
@@ -55,4 +59,31 @@ class AlbumImageTable
     {
         $this->tableGateway->delete(array('id' => (int)$id));
     }
+
+    public function getAlbumsList()
+    {
+        $db = $this->tableGateway->getAdapter();
+        $sql = new Sql($db);
+        $columns = array('id', 'title');
+        $select = $sql->select();
+
+        $select->from('album')->columns($columns);
+        $statement = $sql->prepareStatementForSqlObject($select);
+        $result = $statement->execute();
+        $resultSet = new ResultSet;
+        $resultSet->initialize($result);
+
+         return $resultSet;
+
+        //        echo "<pre>";
+//        print_r($resultSet->toArray());
+//        exit();
+
+
+//        echo "<pre>";
+//        print_r($resultSet->toArray());
+//        exit();
+    }
+
+
 }

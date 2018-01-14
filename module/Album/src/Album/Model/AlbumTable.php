@@ -31,10 +31,11 @@ class AlbumTable
 
         echo "<pre>";
         print_r($resultSet->toArray());
+
         exit();
 
         $resultSet = $this->tableGateway->select();
-        
+
         return $resultSet;
     }
 
