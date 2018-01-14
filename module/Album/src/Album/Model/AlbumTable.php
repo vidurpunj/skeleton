@@ -1,7 +1,12 @@
 <?php
 namespace Album\Model;
 
+
 use Zend\Db\TableGateway\TableGateway;
+
+use Zend\Db\Sql\Sql;
+use Zend\Db\Adapter\Driver\ResultInterface;
+use Zend\Db\ResultSet\ResultSet;
 
 class AlbumTable
 {
@@ -14,7 +19,22 @@ class AlbumTable
 
     public function fetchAll()
     {
+        $db = $this->tableGateway->getAdapter();
+        $sql = new Sql($db);
+        $select = $sql->select();
+        $select->from('album');
+        $statement = $sql->prepareStatementForSqlObject($select);
+        $result = $statement->execute();
+        $resultSet = new ResultSet;
+        $resultSet->initialize($result);
+
+
+        echo "<pre>";
+        print_r($resultSet->toArray());
+        exit();
+
         $resultSet = $this->tableGateway->select();
+        
         return $resultSet;
     }
 
