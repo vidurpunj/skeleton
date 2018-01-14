@@ -37,3 +37,12 @@ gedit /etc/httpd/conf/httpd.conf
 gedit /etc/hosts
 
     127.0.0.1 skeleton.test
+    
+##Install php default server symphony
+
+    CREATE TABLE `album_imag` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `album_id` varchar(100) DEFAULT NULL,
+        `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          PRIMARY KEY (`id`)
+     );
