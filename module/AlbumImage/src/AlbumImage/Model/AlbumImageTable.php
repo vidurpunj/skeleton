@@ -8,6 +8,10 @@ use Zend\Db\Sql\Sql;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
 
+use Zend\Db\Sql\Select;
+use Zend\Paginator\Adapter\DbSelect;
+
+
 class AlbumImageTable
 {
 
@@ -21,8 +25,23 @@ class AlbumImageTable
     public function fetchAll()
     {
 
-        $resultSet = $this->tableGateway->select();
-        return $resultSet;
+      $db = $this->tableGateway->getAdapter();
+      $sql = new Sql($db);
+      $columns = array('id', 'name');
+      $select = $sql->select();
+      $select->from('album_images');
+      $select->join('album','album_images.album_id = album.id',array());
+      $statement = $sql->prepareStatementForSqlObject($select);
+      $result = $statement->execute();
+      $resultSet = new ResultSet;
+      $resultSet->initialize($result);
+      //  print_r($resultSet);
+      //  exit();
+       return $resultSet;
+
+        // $resultSet = $this->tableGateway->select();
+        // return $resultSet;
+
     }
 
     //Used while update need to fetch the Album with that id

@@ -13,7 +13,7 @@ $this->headTitle($title);
     <tr>
         <th>Album Id</th>
         <th>created_at</th>
-
+        <th>Album id</th>
         <th>&nbsp;</th>
     </tr>
     <?php print_r(count($album_images)); ?>
@@ -21,8 +21,9 @@ $this->headTitle($title);
 
     <?php foreach ($album_images as $album_image) : ?>
         <tr>
-            <td><?php echo $this->escapeHtml($album_image->album_id);?></td>
+            <td><?php echo $this->escapeHtml($album_image->name);?></td>
             <td><?php echo $this->escapeHtml($album_image->created_at);?></td>
+            <td><?php echo $this->escapeHtml($album_image->title);?></td>
             <td>
                 <a href="<?php echo $this->url('album_image',
                     array('action'=>'edit', 'id' => $album_image->id));?>">Edit</a>

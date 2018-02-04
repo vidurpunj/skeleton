@@ -12,12 +12,16 @@ class AlbumImage{
     public $id;
     public $album_id;
     public $created_at;
+    public $name;
+    public $title;
 
     public function exchangeArray($data)
     {
         $this->id = (!empty($data['id'])) ? $data['id'] : null;
         $this->album_id = (!empty($data['album_id'])) ? $data['album_id'] : null;
         $this->created_at = (!empty($data['created_at'])) ? $data['created_at'] : null;
+        $this->name = (!empty($data['name'])) ? $data['name'] : null;
+        $this->title = (!empty($data['title'])) ? $data['title'] : null;
 
     }
 
